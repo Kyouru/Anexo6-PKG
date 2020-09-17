@@ -175,7 +175,7 @@ BEGIN
         TO_CHAR(FECVENCIACTUAL, ''yyyymmdd'') AS FECHAVCTOACTUAL,
         TO_CHAR(CTACONREPROCOVID),
         CASE TIPCREDITO WHEN ''20'' THEN ''9'' ELSE COALESCE(TIPCREDITO, '' '') END AS TCA5,
-        CASE TIPCREDITO -- TCA5_Desc
+        CASE TIPCREDITO
             WHEN ''06''
                 THEN ''1 - Corporativo (06)''
             WHEN ''07''
@@ -246,7 +246,7 @@ BEGIN
                        NULL
                  END
             EST_CIVIL,
-        CASE --SIGLAEMPRESA
+        CASE
                          WHEN per.tipopersona = 2
                           THEN
                            RTRIM (LTRIM (PER.NOMBRECOMPLETO))
@@ -280,7 +280,7 @@ BEGIN
             END TIPODOC 
              FROM PERSONANATURAL PN
              WHERE PN.CODIGOPERSONA=PER.CODIGOPERSONA )
-         WHEN  PER.TIPOPERSONA=2 THEN -- PERSONA JURIDICA 
+         WHEN  PER.TIPOPERSONA=2 THEN
              ''6''
         END
             TIPODOCUMENTO,
@@ -403,7 +403,7 @@ BEGIN
             WHEN ''Cred a COOPAC''
                 THEN ''9''
         END TCA5,
-        CASE A6C.CLA_SBS -- TCA5_Desc
+        CASE A6C.CLA_SBS
             WHEN ''CMC''
                 THEN ''1 - Corporativo (06)''
             WHEN ''CMG''
